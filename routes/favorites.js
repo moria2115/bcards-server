@@ -35,7 +35,6 @@ router.post("/", auth, async (req, res) => {
         const { error } = cardSchema.validate(req.body);
         if (error) return res.status(400).send(error.message);
 
-
         //get favorites by userId
         let favorites = await Favorites.findOne({ userId: req.payload })
         if (!favorites) return res.status(404).send("No favorites cards for this user")
@@ -52,7 +51,7 @@ router.post("/", auth, async (req, res) => {
     } catch (error) {
         res.status(400).send(error)
     }
-})
+});
 
 router.get("/myCards", auth, async (req, res) => {
     try {

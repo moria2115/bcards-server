@@ -74,7 +74,6 @@ router.post("/", auth, async (req, res) => {
     }
 });
 
-
 router.get("/", auth, async (req, res) => {
     try {
         //check if user isBusiness
@@ -91,4 +90,5 @@ router.get("/", auth, async (req, res) => {
         res.status(400).send(error.message);
     }
 });
+
 module.exports = router;

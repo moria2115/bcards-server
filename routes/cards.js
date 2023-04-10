@@ -3,8 +3,6 @@ const auth = require("../middlewares/auth");
 const router = express.Router();
 const Card = require("../models/card")
 
-
-
 router.get("/:cardId", auth, async (req, res) => {
     try {
         let card = await Card.findOne({ _id: req.params.cardId });
@@ -15,7 +13,6 @@ router.get("/:cardId", auth, async (req, res) => {
     }
 });
 
-
 router.get("/", auth, async (req, res) => {
     try {
         let cards = await Card.find();
@@ -24,8 +21,5 @@ router.get("/", auth, async (req, res) => {
         res.status(400).send(error)
     }
 })
-
-
-
 
 module.exports = router;
